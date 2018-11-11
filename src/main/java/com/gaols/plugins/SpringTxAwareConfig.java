@@ -6,10 +6,8 @@ import com.jfinal.plugin.activerecord.IContainerFactory;
 import com.jfinal.plugin.activerecord.cache.ICache;
 import com.jfinal.plugin.activerecord.dialect.Dialect;
 import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
-import org.springframework.jdbc.datasource.ConnectionHolder;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.jdbc.support.JdbcUtils;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import javax.sql.DataSource;
 import java.lang.reflect.InvocationTargetException;
