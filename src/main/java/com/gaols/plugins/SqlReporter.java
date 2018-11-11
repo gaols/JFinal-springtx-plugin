@@ -8,6 +8,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
 
+/**
+ * Copy from jfinal.
+ */
 public class SqlReporter implements InvocationHandler {
 
     private Connection conn;

@@ -5,8 +5,39 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.gaols.plugins</groupId>
-    <artifactId>plugin-jfinal-springtx</artifactId>
+    <artifactId>jfinal-springtx-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>jfinal-springtx-plugin</name>
+    <description>enable spring transaction management for jfinal active record</description>
+    <url>https://github.com/gaols/jfinal-springtx-plugin</url>
+
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>http://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>gaols</name>
+            <email>igaols@foxmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:gaols/jfinal-springtx-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:gaols/jfinal-springtx-plugin.git</developerConnection>
+        <url>git@github.com:gaols/jfinal-springtx-plugin.git</url>
+        <tag>jfinal-springtx-plugin-0.1</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/gaols/glrepo/jfinal-springtx-plugin</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -24,5 +55,52 @@
 
     </dependencies>
 
+    <build>
+        <finalName>jfinal-springtx-plugin</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
