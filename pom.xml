@@ -99,7 +99,7 @@
     </dependencies>
 
     <build>
-        <finalName>jfinal-springtx-plugin</finalName>
+        <finalName>jfinal-springtx-plugin-1.0</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
