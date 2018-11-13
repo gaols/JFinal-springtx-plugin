@@ -1,6 +1,6 @@
-package com.gaols.plugins;
+package com.github.gaols.plugins;
 
-import com.gaols.plugins.model.Account;
+import com.github.gaols.plugins.model.Account;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

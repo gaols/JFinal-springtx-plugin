@@ -1,4 +1,4 @@
-package com.gaols.plugins.model;
+package com.github.gaols.plugins.model;
 
 public class Account extends BaseAccount<Account> {
     public static Account dao = new Account();

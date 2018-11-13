@@ -1,4 +1,4 @@
-package com.gaols.plugins;
+package com.github.gaols.plugins;
 
 import java.sql.Connection;
 

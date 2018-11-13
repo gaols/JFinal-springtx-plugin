@@ -1,7 +1,7 @@
-package com.gaols.plugins;
+package com.github.gaols.plugins;
 
-import com.gaols.plugins.model.Account;
-import com.gaols.plugins.service.AccountService;
+import com.github.gaols.plugins.model.Account;
+import com.github.gaols.plugins.service.AccountService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

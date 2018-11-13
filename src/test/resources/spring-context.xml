@@ -18,7 +18,7 @@
     <context:property-placeholder ignore-unresolvable="true" location="classpath*:/conf.properties"/>
 
     <!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
-    <context:component-scan base-package="com.gaols.plugins"/><!-- base-package 如果有多个用“,”分隔 -->
+    <context:component-scan base-package="com.github.gaols.plugins"/><!-- base-package 如果有多个用“,”分隔 -->
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->

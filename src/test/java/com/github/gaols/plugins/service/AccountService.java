@@ -1,6 +1,6 @@
-package com.gaols.plugins.service;
+package com.github.gaols.plugins.service;
 
-import com.gaols.plugins.model.Account;
+import com.github.gaols.plugins.model.Account;
 import com.jfinal.plugin.activerecord.Db;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

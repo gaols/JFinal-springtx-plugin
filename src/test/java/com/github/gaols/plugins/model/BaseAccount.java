@@ -1,4 +1,4 @@
-package com.gaols.plugins.model;
+package com.github.gaols.plugins.model;
 
 import com.jfinal.plugin.activerecord.IBean;
 import com.jfinal.plugin.activerecord.Model;
