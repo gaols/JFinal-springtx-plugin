@@ -51,7 +51,6 @@ ActiveRecord即可。
 ```java
 @Configuration
 public class AppConfig {
-
     @Bean
     public ActiveRecordPlugin activeRecord(DataSource ds) {
         ActiveRecordPlugin activeRecord = new SpringTxAwareActiveRecordPlugin(ds);
