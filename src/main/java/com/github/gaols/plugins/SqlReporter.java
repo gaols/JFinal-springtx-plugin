@@ -10,7 +10,7 @@ import java.lang.reflect.Proxy;
 import java.sql.Connection;
 
 /**
- * Copy from JFinal.
+ * Provide a proxy connection for JFinal.
  */
 public class SqlReporter implements InvocationHandler, SqlReporterConnection {
 
@@ -36,6 +36,14 @@ public class SqlReporter implements InvocationHandler, SqlReporterConnection {
                 String info = "Sql: " + args[0];
                 log.info(info);
             } else if ("close".equals(methodName)) {
+                if (TransactionSynchronizationManager.isActualTransactionActive()) {
+                    return null;
+                }
+            } else if("commit".equals(methodName)) {
+                if (TransactionSynchronizationManager.isActualTransactionActive()) {
+                    return null;
+                }
+            } else if ("rollback".equals(methodName)) {
                 if (TransactionSynchronizationManager.isActualTransactionActive()) {
                     return null;
                 }

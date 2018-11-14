@@ -72,6 +72,7 @@ public class SpringTxAwareActiveRecordPlugin extends ActiveRecordPlugin {
             field.setAccessible(true);
             SpringTxAwareDataSource ds = (SpringTxAwareDataSource) field.get(this);
             ds.setShowSql(showSql);
+            super.setShowSql(false); // always disable JFinal's
         } catch ( IllegalAccessException | NoSuchFieldException e) {
             throw new RuntimeException(e);
         }
