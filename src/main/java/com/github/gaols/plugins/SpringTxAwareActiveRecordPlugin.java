@@ -53,7 +53,7 @@ public class SpringTxAwareActiveRecordPlugin extends ActiveRecordPlugin {
         if (provider == null) {
             throw new IllegalArgumentException("IDataSourceProvider should not be null");
         }
-        return provider.getDataSource();
+        return wrapDataSource(provider.getDataSource());
     }
 
     public SpringTxAwareActiveRecordPlugin(IDataSourceProvider dataSourceProvider) {
