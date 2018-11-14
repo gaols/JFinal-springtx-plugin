@@ -70,4 +70,5 @@ public class AppConfig {
 
 ## 使用限制
 
-目前只支持JFinal-3.5，之前的版本暂不支持。
+* 目前只支持JFinal-2.2以上，之前的版本暂不支持；
+* 由于使用了Spring事务管理，所以不要使用JFinal自带的事务管理。
