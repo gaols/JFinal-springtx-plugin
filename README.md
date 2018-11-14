@@ -67,3 +67,7 @@ public class AppConfig {
 * 将项目根目录下的db.sql导入到本地的数据库中；
 * 修改数据库配置，src/test/resources目录下的conf.properties，使之指向你本地的数据库；
 * 运行测试。
+
+## 使用限制
+
+目前只支持JFinal-3.5，之前的版本暂不支持。
