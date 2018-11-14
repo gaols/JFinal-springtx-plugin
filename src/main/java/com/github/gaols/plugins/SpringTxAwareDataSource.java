@@ -1,6 +1,5 @@
 package com.github.gaols.plugins;
 
-import com.jfinal.log.Log;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import javax.sql.DataSource;
@@ -13,7 +12,6 @@ import java.util.logging.Logger;
 public class SpringTxAwareDataSource implements DataSource {
 
     private final DataSource ds;
-    private static final Log log = Log.getLog(SpringTxAwareDataSource.class);
     private volatile boolean showSql = false;
 
     SpringTxAwareDataSource(DataSource ds) {
