@@ -1,6 +1,7 @@
 package com.github.gaols.plugins;
 
-import com.jfinal.log.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.lang.reflect.InvocationHandler;
@@ -15,8 +16,9 @@ import java.sql.Connection;
 public class SqlReporter implements InvocationHandler, SqlReporterConnection {
 
     private final Connection conn;
-    private static final Log log = Log.getLog(SqlReporter.class);
     private final boolean showSql;
+
+    private static final Logger logger = LoggerFactory.getLogger(SqlReporter.class);
 
     SqlReporter(Connection conn, boolean showSql) {
         this.conn = conn;
@@ -34,7 +36,7 @@ public class SqlReporter implements InvocationHandler, SqlReporterConnection {
         try {
             if (showSql && "prepareStatement".equals(methodName)) {
                 String info = "Sql: " + args[0];
-                log.info(info);
+                logger.info(info);
             } else if ("close".equals(methodName)) {
                 if (TransactionSynchronizationManager.isActualTransactionActive()) {
                     return null;

@@ -1,17 +1,18 @@
 package com.github.gaols.plugins;
 
-import com.jfinal.log.Log;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.Config;
 import com.jfinal.plugin.activerecord.DbKit;
 import com.jfinal.plugin.activerecord.IDataSourceProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import java.lang.reflect.Field;
 
 public class SpringTxAwareActiveRecordPlugin extends ActiveRecordPlugin {
 
-    private static final Log log = Log.getLog(SpringTxAwareActiveRecordPlugin.class);
+    private static final Logger logger = LoggerFactory.getLogger(SpringTxAwareActiveRecordPlugin.class);
 
     public SpringTxAwareActiveRecordPlugin(String configName, DataSource dataSource, int transactionLevel) {
         this(new SpringTxAwareConfig(configName, wrapDataSource(dataSource), transactionLevel));
@@ -41,7 +42,7 @@ public class SpringTxAwareActiveRecordPlugin extends ActiveRecordPlugin {
             field.setAccessible(true);
             field.set(this, ds);
         } catch ( IllegalAccessException | NoSuchFieldException e) {
-            log.warn("no datasource field found for ActiveRecordPlugin");
+            logger.warn("no datasource field found for ActiveRecordPlugin");
         }
     }
 
