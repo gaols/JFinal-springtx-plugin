@@ -1,6 +1,7 @@
 package com.github.gaols.plugins;
 
 import com.jfinal.log.Log;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -15,9 +16,11 @@ public class SqlReporter implements InvocationHandler, SqlReporterConnection {
 
     private final Connection conn;
     private static final Log log = Log.getLog(SqlReporter.class);
+    private final boolean showSql;
 
-    SqlReporter(Connection conn) {
+    SqlReporter(Connection conn, boolean showSql) {
         this.conn = conn;
+        this.showSql = showSql;
     }
 
     @SuppressWarnings("rawtypes")
@@ -27,21 +30,21 @@ public class SqlReporter implements InvocationHandler, SqlReporterConnection {
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        String methodName = method.getName();
         try {
-            if (method.getName().equals("prepareStatement")) {
+            if (showSql && "prepareStatement".equals(methodName)) {
                 String info = "Sql: " + args[0];
                 log.info(info);
-            } else if (method.getName().equals("getUnderlyingConnection")) {
-                return method.invoke(this, args);
+            } else if ("close".equals(methodName)) {
+                if (TransactionSynchronizationManager.isActualTransactionActive()) {
+                    return null;
+                }
             }
+
             return method.invoke(conn, args);
         } catch (InvocationTargetException e) {
             throw e.getTargetException();
         }
     }
 
-    @Override
-    public Connection getUnderlyingConnection() {
-        return conn;
-    }
 }
