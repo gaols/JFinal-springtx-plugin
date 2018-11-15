@@ -7,7 +7,17 @@ JFinal的ActiveRecordPlugin操作数据库很方便，遗憾的是在和Spring�
 
 ## 使用说明
 
-唯一需要改变的地方就是使用本项目提供的`SpringTxAwareActiveRecordPlugin`来代替JFinal的`ActiveRecordPlugin`。
+1. 引入依赖
+
+```xml
+<dependency>
+    <groupId>com.github.gaols</groupId>
+    <artifactId>jfinal-springtx-plugin</artifactId>
+    <version>2.0</version>
+</dependency>
+```
+
+2. 唯一需要改变的地方就是使用本项目提供的`SpringTxAwareActiveRecordPlugin`来代替JFinal的`ActiveRecordPlugin`。
 当然我已经默认你Spring项目已经开启了声明式事务管理。
 
 在Spring下项目中集成JFinal的ActiveRecordPlugin：
