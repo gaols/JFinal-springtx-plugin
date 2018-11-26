@@ -24,12 +24,7 @@ public class SpringTxAwareDataSource implements DataSource {
 
     @Override
     public Connection getConnection() throws SQLException {
-        Connection connection = DataSourceUtils.getConnection(this.ds);
-        if (connection instanceof SqlReporterConnection) {
-            return connection;
-        }
-
-        return new SqlReporter(connection, this.showSql).getConnection();
+        return new SqlReporter( DataSourceUtils.getConnection(this.ds), this.showSql).getConnection();
     }
 
     @Override

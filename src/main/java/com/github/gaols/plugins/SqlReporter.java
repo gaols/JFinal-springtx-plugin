@@ -13,7 +13,7 @@ import java.sql.Connection;
 /**
  * Provide a proxy connection for JFinal.
  */
-public class SqlReporter implements InvocationHandler, SqlReporterConnection {
+public class SqlReporter implements InvocationHandler {
 
     private final Connection conn;
     private final boolean showSql;
@@ -28,7 +28,7 @@ public class SqlReporter implements InvocationHandler, SqlReporterConnection {
     @SuppressWarnings("rawtypes")
     Connection getConnection() {
         Class clazz = conn.getClass();
-        return (Connection) Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{Connection.class, SqlReporterConnection.class}, this);
+        return (Connection) Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{Connection.class}, this);
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -41,7 +41,7 @@ public class SqlReporter implements InvocationHandler, SqlReporterConnection {
                 if (TransactionSynchronizationManager.isActualTransactionActive()) {
                     return null;
                 }
-            } else if("commit".equals(methodName)) {
+            } else if ("commit".equals(methodName)) {
                 if (TransactionSynchronizationManager.isActualTransactionActive()) {
                     return null;
                 }
