@@ -41,7 +41,7 @@ public class AppConfig {
 
 ```java
 public class AccountService {
-    // 开启声明式事物
+    // 开启声明式事务
     @Transactional(rollbackFor = Exception.class)
     public void transfer(int fromAccount, int toAccount, int amount) {
         Db.update("update account set balance=balance+? where id=?", amount, toAccount);
