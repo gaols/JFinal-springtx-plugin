@@ -6,7 +6,7 @@
 
     <groupId>com.github.gaols</groupId>
     <artifactId>jfinal-springtx-plugin</artifactId>
-    <version>2.0</version>
+    <version>2.0.1</version>
     <name>jfinal-springtx-plugin</name>
     <description>enable spring transaction management for jfinal active record</description>
     <url>https://github.com/gaols/jfinal-springtx-plugin</url>
@@ -40,7 +40,7 @@
         <connection>scm:git:git@github.com:gaols/jfinal-springtx-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:gaols/jfinal-springtx-plugin.git</developerConnection>
         <url>git@github.com:gaols/jfinal-springtx-plugin.git</url>
-        <tag>v2.0</tag>
+        <tag>v2.0.1</tag>
     </scm>
 
     <distributionManagement>
@@ -131,7 +131,7 @@
     </dependencies>
 
     <build>
-        <finalName>jfinal-springtx-plugin-2.0</finalName>
+        <finalName>jfinal-springtx-plugin-2.0.1</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
