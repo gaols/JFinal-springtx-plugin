@@ -19,7 +19,7 @@ JFinal的ActiveRecordPlugin操作数据库很方便，遗憾的是在和Spring�
 2. 唯一需要改变的地方就是使用本项目提供的`SpringTxAwareActiveRecordPlugin`来代替JFinal的`ActiveRecordPlugin`。
 当然我已经默认你Spring项目已经开启了声明式事务管理。
 
-在Spring下项目中集成JFinal的ActiveRecordPlugin：
+先来看下在Spring项目中如何集成JFinal的ActiveRecordPlugin：
 
 ```java
 @Configuration
@@ -54,7 +54,7 @@ public class AccountService {
 ```
 
 到目前为止，一切看起来都很顺利，但是当转账条件不满足，抛出一个`YourBussinessException`异常的时候，你会发现事务没有回滚！
-是的，ActiveRecordPlugin默认不支持Spring事物，这个时候你需要只需要使用本项目提供的**SpringTxAwareActiveRecordPlugin**代替
+是的，ActiveRecordPlugin默认不支持Spring事物，这个时候你要做的仅仅是使用本项目提供的**SpringTxAwareActiveRecordPlugin**代替
 ActiveRecordPlugin即可。
 
 ```java
