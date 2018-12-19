@@ -17,7 +17,7 @@ JFinal的ActiveRecordPlugin操作数据库很方便，遗憾的是在和Spring�
 ```
 
 2. 唯一需要改变的地方就是使用本项目提供的`SpringTxAwareActiveRecordPlugin`来代替JFinal的`ActiveRecordPlugin`。
-当然我已经默认你Spring项目已经开启了声明式事务管理。
+当然我默认你的Spring项目已经开启了声明式事务管理。
 
 先来看下在Spring项目中如何集成JFinal的ActiveRecordPlugin：
 
