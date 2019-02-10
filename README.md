@@ -16,6 +16,8 @@ JFinal的ActiveRecordPlugin操作数据库很方便，遗憾的是在和Spring�
 </dependency>
 ```
 
+**注意：本插件依赖JFinal，请自行引入合适的版本。**
+
 2. 唯一需要改变的地方就是使用本项目提供的`SpringTxAwareActiveRecordPlugin`来代替JFinal的`ActiveRecordPlugin`。
 当然我默认你的Spring项目已经开启了声明式事务管理。
 
@@ -77,7 +79,8 @@ public class AppConfig {
 * 修改数据库配置，src/test/resources目录下的conf.properties，使之指向你本地的数据库；
 * 运行测试。
 
-## 使用限制
+## 使用说明
 
 * 目前只支持JFinal-2.2以上，之前的版本暂不支持；
-* 由于使用了Spring事务管理，所以不要使用JFinal自带的事务管理。
+* 由于使用了Spring事务管理，所以不要使用JFinal自带的事务管理；
+* 确保开启事务的数据源和提供给JFinal的数据源是同一个。
