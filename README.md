@@ -57,7 +57,7 @@ public class AccountService {
 
 到目前为止，一切看起来都很顺利，但是当转账条件不满足，抛出一个`YourBussinessException`异常的时候，你会发现事务没有回滚！
 是的，*ActiveRecordPlugin*默认不支持Spring事物，这个时候你要做的仅仅是使用本项目提供的**SpringTxAwareActiveRecordPlugin**代替
-ActiveRecordPlugin即可。
+*ActiveRecordPlugin*即可。
 
 ```java
 @Configuration
