@@ -1,4 +1,4 @@
-# jfinal-springtx-plugin
+# JFinal-springtx-plugin
 
 ## 概述
 
