@@ -2,7 +2,7 @@
 
 ## 概述
 
-JFinal的ActiveRecordPlugin操作数据库很方便，遗憾的是在和Spring一起使用的时候，无法参与到Spring事务中。本插件就是让ActiveRecord也可以很方便的参与到Spring的声明式事务管理中。
+JFinal的**ActiveRecordPlugin**操作数据库很方便，遗憾的是在和Spring一起使用的时候，无法参与到Spring事务中。本插件就是让*ActiveRecord*也可以很方便的参与到Spring的声明式事务管理中。
 
 ## 使用说明
 
@@ -21,7 +21,7 @@ JFinal的ActiveRecordPlugin操作数据库很方便，遗憾的是在和Spring�
 2. 唯一需要改变的地方就是使用本项目提供的`SpringTxAwareActiveRecordPlugin`来代替JFinal的`ActiveRecordPlugin`。
 当然我默认你的Spring项目已经开启了声明式事务管理。
 
-先来看下在Spring项目中如何集成JFinal的ActiveRecordPlugin：
+先来看下在Spring项目中如何集成JFinal的*ActiveRecordPlugin*：
 
 ```java
 @Configuration
@@ -38,7 +38,7 @@ public class AppConfig {
 }
 ```
 
-通过上面简单的配置，我们就可以在Spring项目中使用JFinal的ActiveRecord了。
+通过上面简单的配置，我们就可以在Spring项目中使用JFinal的*ActiveRecord*了。
 
 ```java
 public class AccountService {
@@ -56,7 +56,7 @@ public class AccountService {
 ```
 
 到目前为止，一切看起来都很顺利，但是当转账条件不满足，抛出一个`YourBussinessException`异常的时候，你会发现事务没有回滚！
-是的，ActiveRecordPlugin默认不支持Spring事物，这个时候你要做的仅仅是使用本项目提供的**SpringTxAwareActiveRecordPlugin**代替
+是的，*ActiveRecordPlugin*默认不支持Spring事物，这个时候你要做的仅仅是使用本项目提供的**SpringTxAwareActiveRecordPlugin**代替
 ActiveRecordPlugin即可。
 
 ```java
@@ -73,14 +73,14 @@ public class AppConfig {
 }
 ```
 
+## 使用说明
+
+* 目前只支持JFinal-2.2以上，之前的版本暂不支持；
+* 由于使用了Spring事务管理，所以不要使用JFinal自带的事务管理；
+* 确保开启事务的数据源和提供给JFinal的数据源是**同一个**(划重点)。
+
 ## 测试说明
 
 * 将项目根目录下的db.sql导入到本地的数据库中；
 * 修改数据库配置，src/test/resources目录下的conf.properties，使之指向你本地的数据库；
 * 运行测试。
-
-## 使用说明
-
-* 目前只支持JFinal-2.2以上，之前的版本暂不支持；
-* 由于使用了Spring事务管理，所以不要使用JFinal自带的事务管理；
-* 确保开启事务的数据源和提供给JFinal的数据源是同一个。
