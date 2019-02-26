@@ -27,3 +27,4 @@ hs_err_pid*
 /.idea/
 /jfinal-springtx-plugin.iml
 /doc/
+*.iml
