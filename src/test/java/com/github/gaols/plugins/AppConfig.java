@@ -21,6 +21,7 @@ public class AppConfig {
         ActiveRecordPlugin activeRecord = new SpringTxAwareActiveRecordPlugin(ds);
         activeRecord.setShowSql(true);
         activeRecord.addMapping("Account", "id", Account.class);
+        activeRecord.addSqlTemplate("sql/account_service.sql");
         activeRecord.start();
         return activeRecord;
     }

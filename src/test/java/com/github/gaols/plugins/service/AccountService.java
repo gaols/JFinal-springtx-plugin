@@ -1,9 +1,13 @@
 package com.github.gaols.plugins.service;
 
 import com.github.gaols.plugins.model.Account;
+import com.jfinal.kit.Kv;
 import com.jfinal.plugin.activerecord.Db;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AccountService {
@@ -41,4 +45,17 @@ public class AccountService {
         }
     }
 
+
+    @Transactional(rollbackFor = Exception.class)
+    public void setBalance(int amount) {
+        List<String> names = new ArrayList<>();
+        names.add("gaols");
+        names.add("here");
+        Kv kv = Kv.by("b", amount).set("names", names);
+        Db.template("account.update_balance_by_name", kv).update();
+
+        if (amount > 100) {
+            throw new RuntimeException("should not update");
+        }
+    }
 }

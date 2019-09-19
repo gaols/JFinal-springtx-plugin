@@ -82,4 +82,19 @@ public class SpringTxAwareConfigTest {
         }
     }
 
+
+    @Test
+    public void Test_setBalance() {
+        accountService.setBalance(20);
+        Assert.assertEquals(20, accountService.getBalance("gaols"));
+        Assert.assertEquals(20, accountService.getBalance("here"));
+
+        try {
+            accountService.setBalance(101);
+        } catch (Exception ex) {
+            Assert.assertEquals(20, accountService.getBalance("gaols"));
+            Assert.assertEquals(20, accountService.getBalance("here"));
+        }
+
+    }
 }
